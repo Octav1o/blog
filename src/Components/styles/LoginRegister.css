@@ -1,0 +1,155 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+
+
+
+.login-register-container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('../../assets/images/Font1.jpg');
+    background-size: cover;
+    background-position: center;
+
+    box-sizing: border-box;
+
+}
+
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    background: #e5decf;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: height .2s ease;
+    /* color: #fff; */
+}
+
+.wrapper.active {
+    height: 620px;
+
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login {
+    transition: translate .18s ease;
+    translate: 0px;
+}
+
+.wrapper.active .form-box {
+    transition: ease;
+    translate: -400px;
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    translate: 400px;
+}
+
+.wrapper.active .form-box.register {
+    transition: translate .18s ease;
+    translate: 0px;
+}
+
+form h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+form .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    /* background-color: salmon; */
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid ;
+    border-radius: 40px;
+    font-size: 16px;
+    /* color: white; */
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #4D4D4D;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    translate: 0 -50%;
+    font-size: 16px;
+}
+
+form .remeber-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remeber-forgot label input {
+    accent-color: #fff;
+    margin-right: 4px;
+}
+
+.remeber-forgot a {
+    color: #333333;
+    text-decoration: none;
+}
+
+.remeber-forgot a:hover {
+    text-decoration: underline;
+}
+
+form button {
+    width: 100%;
+    height: 45px;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 16px;
+    color: #333333;
+    font-weight: 700;
+}
+
+form .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
