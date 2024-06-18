@@ -10,8 +10,8 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element = {<LoginRegister/>}/>
-          <Route path='/HomePage' element = {<PrivateRoute/>}/>
           <Route path='/HomePage' element = {<HomePage/>}/>
+          <Route path='/HomePage' element = {<PrivateRoute/>}/>
           <Route path='/MyPosts' element = {<MyPosts/>}/>
         </Routes>
       </Router>

@@ -1,4 +1,4 @@
-export const Login = async (name, lastname, mail, password, pfp, ) => {
+export const Register = async (name, lastname, mail, password, ) => {
     const response = await fetch("http://localhost:5000/api/user/registerUser", {
       method: "POST",
       headers: {

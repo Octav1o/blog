@@ -2,15 +2,20 @@ import React, { useState, useEffect } from "react";
 import "../styles/LoginRegister.css";
 import { CiMail, CiUser, CiLock } from "react-icons/ci";
 import { Login } from "../../api_consume/login";
+import { Register } from "../../api_consume/register";
 import { useNavigate } from "react-router-dom";
-import { containerClasses } from "@mui/material";
-// import {HomePage} from "./HomePage";
 
 export const LoginRegister = () => {
   const [action, setAction] = useState("");
-  // const [_login, setLogin] = useState([]);
+
   const [mail, setMail] = useState([]);
   const [password, setPassword] = useState([]);
+
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [registerMail, setRegisterMail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+
   const navigate = useNavigate();
 
   const handleLogin = async (event) => {
@@ -32,6 +37,30 @@ export const LoginRegister = () => {
       }
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  const handleRegister = async (event) => {
+    event.preventDefault();
+
+    if (!name || !lastname || !registerMail || !registerPassword) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    try {
+      const data = await Register(
+        name,
+        lastname,
+        registerMail,
+        registerPassword
+      );
+      console.log("User registered successfully:", data);
+      alert("User registered successfully");
+      setAction(""); // Switch back to login view after successful registration
+    } catch (err) {
+      console.error("Error registering user:", err);
+      alert("Error registering user");
     }
   };
 
@@ -91,22 +120,46 @@ export const LoginRegister = () => {
         </div>
 
         <div className="form-box register">
-          <form action="">
+          <form onSubmit={handleRegister} action="">
             <h1>Registration</h1>
             <div className="input-box">
-              <input type="text" placeholder="name" required />
+              <input
+                type="text"
+                placeholder="name"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
               <CiUser className="icon" />
             </div>
             <div className="input-box">
-              <input type="text" placeholder="lastname" required />
+              <input
+                type="text"
+                placeholder="lastname"
+                required
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
+              />
               <CiUser className="icon" />
             </div>
             <div className="input-box">
-              <input type="text" placeholder="mail" required />
+              <input
+                type="text"
+                placeholder="mail"
+                required
+                value={registerMail}
+                onChange={(e) => setRegisterMail(e.target.value)}
+              />
               <CiMail className="icon" />
             </div>
             <div className="input-box">
-              <input type="password" placeholder="password" required />
+              <input
+                type="password"
+                placeholder="password"
+                required
+                value={registerPassword}
+                onChange={(e) => setRegisterPassword(e.target.value)}
+              />
               <CiLock className="icon" />
             </div>
 
